@@ -1,7 +1,9 @@
 import { Locator, Page } from "@playwright/test";
 
+/** Represents the Shipment Details Info tab. */
 export class ShipmentsDetailPageInfoTab {
     readonly page: Page;
+    readonly tabHeader: Locator;
     readonly hawbInput: Locator;
     readonly movementNumberInput: Locator;
     readonly consigneeName: Locator;
@@ -59,6 +61,7 @@ export class ShipmentsDetailPageInfoTab {
 
     constructor(page: Page) {
         this.page = page;
+        this.tabHeader = page.locator('#cp2_ShipmentInfoTabHeader');
         this.hawbInput = page.locator('input[name="ctl00\$cp2\$txtShipmentIDHawb"]');
         this.movementNumberInput = page.locator('input[name="ctl00\$cp2\$txtMovement"]');
         this.consigneeName = page.locator('input[name="ctl00\$cp2\$txtConsigneeConsignorName"]');
@@ -113,5 +116,10 @@ export class ShipmentsDetailPageInfoTab {
         this.readyForEntryInput = page.locator('text=Ready for Entry');
         this.papwerworkInput = page.locator('text=PPWK');
         this.trsInput = page.locator('text=TRS');
+    }
+
+    /** Selects the Shipment Details Info tab. */
+    async selectTab(): Promise<void> {
+        await this.tabHeader.click();
     }
 }

@@ -1,7 +1,9 @@
 import { Locator, Page } from "@playwright/test";
 
+/** Represents the Shipment Details Other Info tab. */
 export class ShipmentDetailsPageOtherInfoTab {
     readonly page: Page;
+    readonly tabHeader: Locator;
     readonly messageEntryNumberInput: Locator;
     readonly invoiceTypeInput: Locator;
     readonly customsRefNumberInput: Locator;
@@ -54,6 +56,7 @@ export class ShipmentDetailsPageOtherInfoTab {
 
     constructor(page: Page) {
         this.page = page;
+        this.tabHeader = page.locator('text=Other Info');
         this.messageEntryNumberInput = page.locator('input[name="ctl00\$cp2\$txtEntryNumber"]');
         this.invoiceTypeInput = page.locator('input[name="ctl00\$cp2\$txtInvoiceType"]');
         this.customsRefNumberInput = page.locator('input[name="ctl00\$cp2\$txtCustomsReferenceNumber"]');
@@ -103,5 +106,10 @@ export class ShipmentDetailsPageOtherInfoTab {
         this.eventCodeInput = page.locator('input[name="ctl00\$cp2\$txtEventCode"]');
         this.reasonCodeInput = page.locator('input[name="ctl00\$cp2\$txtReasonCode"]');
         this.paymentMethodTypeCodeInput = page.locator('select[name="ctl00\$cp2\$ddlPaymentMethodTypeCode"]');
+    }
+
+    /** Selects the Shipment Details Info tab. */
+    async selectTab(): Promise<void> {
+        await this.tabHeader.click();
     }
 }

@@ -1,7 +1,10 @@
 import { Locator, Page } from "@playwright/test";
+import { ShipmentDetailsPageConsigneeCustomerLookupPopup } from "./ShipmentDetailsPageConsigneeCustomerLookupPopup";
 
+/** Represents the Shipment Details Consignee tab. */
 export class ShipmentDetailsPageConsigneeTab {
     readonly page: Page;
+    readonly tabHeader: Locator;
     readonly englishNameInput: Locator;
     readonly englishAddressLine1Input: Locator;
     readonly englishAddressLine2Input: Locator;
@@ -37,9 +40,12 @@ export class ShipmentDetailsPageConsigneeTab {
     readonly importerCustomerReferenceInput: Locator;
     readonly relatedShipperInput: Locator;
     readonly instructionsInput: Locator;
+    readonly customerLookupButton: Locator;
+    readonly customerLookupPopup: ShipmentDetailsPageConsigneeCustomerLookupPopup;
 
     constructor(page: Page) {
         this.page = page;
+        this.tabHeader = page.locator('text=Cnsgnee');
         this.englishNameInput = page.locator('input[name="ctl00\$cp2\$txtConsigneeInfoEnglishName"]');
         this.englishAddressLine1Input = page.locator('input[name="ctl00\$cp2\$txtConsigneeInfoEnglishAddress1"]');
         this.englishAddressLine2Input = page.locator('input[name="ctl00\$cp2\$txtConsigneeInfoEnglishAddress2"]');
@@ -75,5 +81,17 @@ export class ShipmentDetailsPageConsigneeTab {
         this.importerCustomerReferenceInput = page.locator('input[name="ctl00\$cp2\$txtConsigneeInfoImporterCustomerReference"]');
         this.relatedShipperInput = page.locator('input[name="ctl00\$cp2\$txtRelatedShipper"]');
         this.instructionsInput = page.locator('textarea[name="ctl00\$cp2\$txtConsigneeInfoImporterInstructions"]');
+        this.customerLookupButton = page.locator('#cp2_btnLookupConsignee');
+        this.customerLookupPopup = new ShipmentDetailsPageConsigneeCustomerLookupPopup(page);
+    }
+
+    /** Open customer lookup. */
+    async openCustomerLookup(): Promise<void> {
+        await this.customerLookupButton.click();
+    }
+
+    /** Selects the Shipment Details Info tab. */
+    async selectTab(): Promise<void> {
+        await this.tabHeader.click();
     }
 }
