@@ -14,5 +14,5 @@ test('login', async ({ page }) => {
     await page.locator('text=Proceed to').click();
   }
   
-  await logInPage.loginDefault();
+  await logInPage.loginDefault(); 
 });
