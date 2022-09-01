@@ -2,9 +2,12 @@ node_modules/
 /test-results/
 /playwright-report/
 /playwright/.cache/
+<<<<<<< HEAD
 /test-results/
 /playwright-report/
 /playwright/.cache/
 /test-results/
 /playwright-report/
 /playwright/.cache/
+=======
+>>>>>>> 4757405f2d20c99b41df7518caaadf90f99883ca

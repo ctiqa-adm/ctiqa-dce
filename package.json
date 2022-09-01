@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "playwright_test",
+=======
+  "name": "sample1",
+>>>>>>> 4757405f2d20c99b41df7518caaadf90f99883ca
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +12,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+<<<<<<< HEAD
     "@playwright/test": "^1.25.1",
     "dotenv": "^16.0.1"
+=======
+    "@playwright/test": "^1.25.1"
+>>>>>>> 4757405f2d20c99b41df7518caaadf90f99883ca
   }
 }
