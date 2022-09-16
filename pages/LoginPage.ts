@@ -52,6 +52,15 @@ export class LogInPage {
     /** Go to the Login page. */
     async goto(): Promise<void> {
         const url = `${process.env.BASE_URL}/Login.aspx`;
-        await this.page.goto(url);
+        try {
+            await this.page.goto(url);
+        }
+        catch {
+            console.log("Continue...")
+            // Click text=Proceed to win2k16-vm (unsafe)
+            await this.page.locator('text=Advanced').click();
+
+            await this.page.locator('text=Proceed to').click();
+        }
     }
 }

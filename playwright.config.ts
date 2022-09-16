@@ -1,9 +1,6 @@
 import type { PlaywrightTestConfig } from '@playwright/test';
 import { devices } from '@playwright/test';
-<<<<<<< HEAD
 import dotenv from 'dotenv';
-=======
->>>>>>> 4757405f2d20c99b41df7518caaadf90f99883ca
 
 /**
  * Read environment variables from file.
@@ -11,23 +8,16 @@ import dotenv from 'dotenv';
  */
 // require('dotenv').config();
 
-<<<<<<< HEAD
 // Read from default ".env" file.
 dotenv.config();
 
-=======
->>>>>>> 4757405f2d20c99b41df7518caaadf90f99883ca
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
 const config: PlaywrightTestConfig = {
   testDir: './tests',
   /* Maximum time one test can run for. */
-<<<<<<< HEAD
   timeout: 120 * 1000,
-=======
-  timeout: 30 * 1000,
->>>>>>> 4757405f2d20c99b41df7518caaadf90f99883ca
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
@@ -65,35 +55,19 @@ const config: PlaywrightTestConfig = {
       },
     },
 
-<<<<<<< HEAD
-    //{
-    //  name: 'firefox',
-     // use: {
-     //   ...devices['Desktop Firefox'],
-    //  },
-    //},
-
-    //{
-    //  name: 'webkit',
-    //  use: {
-    //    ...devices['Desktop Safari'],
-    //  },
-    //},
-=======
     {
-      name: 'firefox',
-      use: {
-        ...devices['Desktop Firefox'],
-      },
+     name: 'firefox',
+     use: {
+       ...devices['Desktop Firefox'],
+     },
     },
 
     {
-      name: 'webkit',
-      use: {
-        ...devices['Desktop Safari'],
-      },
+     name: 'webkit',
+     use: {
+       ...devices['Desktop Safari'],
+     },
     },
->>>>>>> 4757405f2d20c99b41df7518caaadf90f99883ca
 
     /* Test against mobile viewports. */
     // {
