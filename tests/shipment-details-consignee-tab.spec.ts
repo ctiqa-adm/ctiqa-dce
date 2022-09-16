@@ -5,17 +5,7 @@ import { ShipmentGridPage } from '../pages/ShipmentGridPage';
 test.describe('shipment details consignee tab', () => {
   test.beforeEach(async ({ page }) => {
     const logInPage = new LogInPage(page);
-    
-    try {
-      await logInPage.goto();
-    } catch (error) {
-      console.log("Continue...")
-      // Click text=Proceed to win2k16-vm (unsafe)
-      await page.locator('text=Advanced').click();
-    
-      await page.locator('text=Proceed to').click();
-    }
-
+    await logInPage.goto();
     await logInPage.loginDefault();
   });
 
@@ -40,5 +30,6 @@ test.describe('shipment details consignee tab', () => {
     expect(await shipmentDetailsPage.consigneeTab.customerLookupPopup.postalCodeInput.getAttribute('type')).toBe('search');
     expect(await shipmentDetailsPage.consigneeTab.customerLookupPopup.countryInput.getAttribute('type')).toBe('search');
     expect(await shipmentDetailsPage.consigneeTab.customerLookupPopup.customsIdInput.getAttribute('type')).toBe('search');
+    // expect(await shipmentDetailsPage.consigneeTab.customerLookupPopup.nameInput.inputValue()).toEqual("");
   });
 });
