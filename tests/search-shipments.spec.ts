@@ -28,7 +28,7 @@ test.describe('shipment grid tests', () => {
     expect(await shipmentGridPage.customsIdInput.inputValue()).toBe('');
     // match to value Entry Status
     expect(await shipmentGridPage.filter1Input.inputValue()).toMatch(/Cormant.Dce.Shipments.Service.Searching.ShipmentEntryStatusField, Cormant.Dce/);
-    expect(await shipmentGridPage.filter1OperatorInput.inputValue()).toBe('Equals');
+    expect(await shipmentGridPage.filter1OperatorInput.inputValue()).toBe('NotEquals');
     // match to value of Entry Liquidated
     expect(await shipmentGridPage.filter1DropdownInput.inputValue()).toBe('12');
     expect(await shipmentGridPage.filter2Input.inputValue()).toBe('');
